@@ -1,0 +1,18 @@
+# CONFIG
+/app/config/parameters.yml
+/app/phpunit.xml
+
+# GENERATED
+/app/bootstrap.php.cache
+/app/cache/*
+/app/logs/*
+/web/bundles/
+
+# VENDORS
+/bin/
+/build/
+/composer.phar
+/vendor/
+
+# KEEP
+!.gitkeep
