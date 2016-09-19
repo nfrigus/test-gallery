@@ -3,6 +3,7 @@ var
   buffer = require('vinyl-buffer'),
   coffeeify = require('coffeeify'),
   gulp = require('gulp'),
+  sass = require('gulp-sass'),
   source = require('vinyl-source-stream'),
   sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify'),
@@ -42,15 +43,21 @@ function compile(watch) {
   }
 }
 
-function watch() {
-  return compile(true);
-};
+gulp.task('sass', function() {
+  return gulp.src('./web/app/assets/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./web/app/dist'));
+});
+
+gulp.task('sass:watch', function() {
+  gulp.watch('./sass/**/*.scss', ['sass']);
+});
 
 gulp.task('build', function() {
   return compile();
 });
 gulp.task('watch', function() {
-  return watch();
+  return compile(true);
 });
 
 gulp.task('default', ['watch']);
