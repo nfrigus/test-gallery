@@ -7,12 +7,14 @@
 /app/cache/*
 /app/logs/*
 /web/bundles/
+/web/app/dist
 
 # VENDORS
 /bin/
 /build/
 /composer.phar
 /vendor/
+node_modules
 
 # KEEP
 !.gitkeep
